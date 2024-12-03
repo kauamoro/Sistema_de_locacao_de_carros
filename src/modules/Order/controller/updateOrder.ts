@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import UpdateOrderService from "../services/UpdateOrderService";
 
 export default class UpdateOrderController {
-    async updateOrder(req: Request, res: Response) {
+    async updateOrder(req: Request, res: Response, mockNext: unknown) {
         const { id } = req.params;
         const { DataInicial, DataFinal, CEP, status} = req.body;
 

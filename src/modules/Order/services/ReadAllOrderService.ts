@@ -3,8 +3,8 @@
 
 import Order from '../models/Order';
 import Customer from '../../customer/models/Customer';
-import { AppError } from '../../../shared/errors/AppError';
-import { Op } from 'sequelize';
+import { AppError } from '../../../shared/http/errors/AppError';
+import { Model, Op } from 'sequelize';
 
 interface GetOdersParams {
     status?: string;
@@ -18,12 +18,19 @@ interface GetOdersParams {
 const getOrders = async ({ status, CPF, DataInicial, DataFinal, page, pageSize }: GetOdersParams): Promise <{ totalOrders: number; totalPages: number; orders: Order[] }> => {
     const where: Record<string, unknown >= {};
 
+    const ordenacao = 'ASC';
+    const ordem = 'DataInicial';
+
     if (status) {
         where.status = status;
     }
 
     if (CPF) {
-        where.CPF = CPF
+        const searchCPF = await Customer.findOne({
+            where: { CPF }
+        })
+
+        where.cliente = searchCPF.id
     }
 
     if (DataInicial || DataFinal) {
@@ -31,19 +38,30 @@ const getOrders = async ({ status, CPF, DataInicial, DataFinal, page, pageSize }
         where.DataFinal = {};
 
         if (DataInicial) {
-            where.DataInicial[Op.gte] = new Date(DataInicial)
+            where[DataInicial]= {[Op.gte]: new Date(DataInicial)}
         }
 
         if (DataFinal) {
-            where.DataFinal[Op.lte] = new Date(DataFinal);
+            where[DataFinal]= {[Op.lte]: new Date(DataFinal)}
+            ordenacao = 'DESC';
+            ordem = 'DataFinal';
         }
     }
 
     const { count, rows } = await Order.findAndCountAll({
         where,
-        order: [['DataInicial', 'ASC']],
+        order: [[ordem, ordenacao]],
         limit: pageSize,
         offset: (page - 1) * pageSize,
+        attributes:[
+            'id', 'status', 'DataInicial', 'DataFinal', 'DataCancelamento', 'ValorTotal','CEP', 'Cidade', 'UF'
+        ],
+        include: [{
+            model: Customer,
+            attributes:[
+                'id','nome','cpf'
+            ]
+        }]
     });
 
     return {

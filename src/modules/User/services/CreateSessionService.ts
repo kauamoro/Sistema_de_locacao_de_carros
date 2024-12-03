@@ -2,7 +2,7 @@ import User from '../models/User';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import authConfig from '../../../config/auth';
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 
 interface IRequest {
     email: string;

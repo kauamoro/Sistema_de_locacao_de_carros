@@ -1,5 +1,5 @@
 import Car from '../models/car.model';
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 
 interface IUpdatedProperties {
     plate?: string;

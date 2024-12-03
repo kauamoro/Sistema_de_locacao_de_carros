@@ -1,5 +1,5 @@
 import Customer from '../models/Customer'; // Importa o modelo Customer
-import { AppError } from '../../../shared/errors/AppError'; // Importa a classe de erro personalizada
+import { AppError } from '../../../shared/http/errors/AppError'; // Importa a classe de erro personalizada
 import { v4 as uuidv4 } from 'uuid'; // Importa a função para gerar UUIDs
 import { Op } from 'sequelize'; // Importa operadores do Sequelize para consultas
 

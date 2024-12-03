@@ -1,5 +1,5 @@
 import User from '../models/User';
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 
 export default class ShowUserService {
     public async execute(id: string): Promise<User> {

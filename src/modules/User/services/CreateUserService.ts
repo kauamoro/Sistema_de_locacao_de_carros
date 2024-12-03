@@ -1,5 +1,5 @@
 import User from '../models/User';
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 import { hash } from 'bcryptjs';
 
 interface IRequest {

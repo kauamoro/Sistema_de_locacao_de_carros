@@ -84,7 +84,7 @@ Order.init(
             },
         },
         DataCancelamento: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull: true,
             defaultValue: null,
             validate: {

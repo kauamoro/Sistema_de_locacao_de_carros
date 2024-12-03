@@ -1,4 +1,4 @@
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 import Car from '../models/car.model';
 import { v4 as uuidv4 } from 'uuid';
 

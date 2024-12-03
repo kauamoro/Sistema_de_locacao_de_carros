@@ -1,4 +1,4 @@
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 import Car from '../models/car.model';
 
 export default async function getCarById(id: string) {

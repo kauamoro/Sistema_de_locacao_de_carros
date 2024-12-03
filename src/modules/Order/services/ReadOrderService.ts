@@ -1,4 +1,4 @@
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 import Order from '../models/Order';
 import car from '../../car/models/car.model';
 import Customer from '../../customer/models/Customer';

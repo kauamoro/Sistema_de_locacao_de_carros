@@ -1,4 +1,4 @@
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 import User from '../models/User';
 import { Op } from 'sequelize';
 
@@ -47,27 +47,29 @@ export default class ListUserService {
             where: { ...whereFilter },
             paranoid: justActive,
         });
+
+        if (countUsers === 0) {
+            throw new AppError('No results match your search.', 404);
+        }
+
         const pages = Math.ceil(countUsers / limit);
+
         const users = await User.findAll({
             attributes: {
                 exclude: ['password'],
             },
             where: { ...whereFilter },
             paranoid: justActive,
-
             order: [
                 ['name', `${nameOrder}`],
                 ['createdAt', `${createOrder}`],
                 ['deletedAt', `${deleteOrder}`],
             ],
-
             raw: true,
             offset: page * limit - limit,
             limit: limit,
         });
-        if (countUsers == 0) {
-            throw new AppError('No results match your search.', 404);
-        }
+
         return { users, pages };
     }
 }

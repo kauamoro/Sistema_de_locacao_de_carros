@@ -1,7 +1,7 @@
 import Order from '../models/Order';
 import axios from 'axios';
 import { UUID } from 'crypto';
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 
 interface ExecuteParams {
     id: UUID | string;

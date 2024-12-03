@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import ReadOrderService from "../services/ReadOrderService"
 
 export default class ReadOrderController {
-    public async readOrder(req: Request, res: Response) {
+    public async readOrder(req: Request, res: Response, mockNext: unknown) {
         const { id } = req.params;
 
         const newRead = new ReadOrderService();

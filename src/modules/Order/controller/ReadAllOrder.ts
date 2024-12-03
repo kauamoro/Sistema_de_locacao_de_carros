@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import ReadAllOrderService from "../services/ReadAllOrderService"
-import { AppError } from "../../../shared/errors/AppError";
+import { AppError } from "../../../shared/http/errors/AppError";
 
 const ReadAll = async (req: Request, res: Response) => {
     const { status, CPF, DataInicial, DataFinal, page, pageSize } = req.query;

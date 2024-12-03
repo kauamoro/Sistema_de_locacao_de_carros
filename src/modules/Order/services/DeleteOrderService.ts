@@ -1,5 +1,6 @@
 import Order from '../models/Order';
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
+import { app } from 'src/shared/http/server';
 
 export default class DeleteOrderService {
     public async execute(id: string) {
@@ -11,7 +12,14 @@ export default class DeleteOrderService {
                 throw new AppError('Pedido não encontrado!', 404);
             }
 
-            await Order.destroy({ where: { id }});
+            if (OrderExist.status != 'Aberto') {
+                throw new AppError('Somente Pedidos com status "Aberto" podem ser cancelados!', 403);
+            }
+
+            OrderExist.status = 'Cancelado';
+            await OrderExist.save()
+
+            await OrderExist.destroy();
 
             return;
 

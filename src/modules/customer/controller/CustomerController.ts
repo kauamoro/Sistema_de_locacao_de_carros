@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import CustomerService from '../services/CustomerServices';
-import { AppError } from '../../../shared/errors/AppError';
+import { AppError } from '../../../shared/http/errors/AppError';
 
 // Controlador para gerenciar operações relacionadas a clientes
 class CustomerController {
