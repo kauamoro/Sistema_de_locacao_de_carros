@@ -6,7 +6,7 @@ Esse projeto tem como objetivo criar uma API simulando um sistema da empresa Com
 
 ## Como executar o projeto em sua maquina local?
 
--   Utilizando no terminal o comando `git clone` https://github.com/RickM19/AWS_NODE_SET24_DESAFIO_02_THE_BIG_NODE_THEORY crie uma cópia desse projeto em seu repositório local
+-   Utilizando no terminal o comando `git clone` git@github.com:kauamoro/Sistema_de_locacao_de_carros.git crie uma cópia desse projeto em seu repositório local
 -   Instale as dependências necessárias utilizando o comando `npm install`
 -   Inicie o seu MySQL e configure a conexão do sequelize ao seu usuário.
 -   Em seu terminal utilize nessa ordem as seguintes linhas de comando:
@@ -28,7 +28,7 @@ Esse projeto tem como objetivo criar uma API simulando um sistema da empresa Com
 - Docker e Docker Compose: Instalados e configurados na instância EC2.
 
 1. ssh -i "sua-chave.pem" ubuntu@seu-endereco-ip -> No terminal, acesse a instância utilizando a chave SSH
-2. git clone git@github.com:kauamoro/Desafio3_Kaua_Moro.git -> Dentro da instância, clone o repositório do projeto
+2. git clone git@github.com:kauamoro/Sistema_de_locacao_de_carros.git -> Dentro da instância, clone o repositório do projeto
 3. docker-compose up -d -> Inicie o projeto utilizando este comando.
 4. Executar migrações e seeds
 - docker exec -it <nome_do_container_da_api> npx sequelize db:create
