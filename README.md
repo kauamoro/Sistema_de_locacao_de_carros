@@ -1,8 +1,8 @@
-# 💻 AWS Node - Desafio 02 API - GRUPO:THE BIG NODE THEORY
+# 💻 Sistema de locação de carros
 
 ## Descrição
 
-Esse projeto foi desenvolvido durante a trilha de Node.js do programa de bolsas da Compass UOL e tem como objetivo criar uma API simulando um sistema da empresa CompassCar que possui funcionalidades desde o cadastramento de usuários, clientes e carros até a criação e gerenciamento de pedidos
+Esse projeto tem como objetivo criar uma API simulando um sistema da empresa CompassCar que possui funcionalidades desde o cadastramento de usuários, clientes e carros até a criação e gerenciamento de pedidos
 
 ## Como executar o projeto em sua maquina local?
 
